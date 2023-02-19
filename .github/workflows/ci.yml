@@ -119,8 +119,9 @@ jobs:
 
         sudo rm /usr/bin/x86_64-linux-gnu-python2.7-config
 
-        # Build Glslang, Spirv-Tools, and Spirv-Cross from their repositories
-
+    - name: Build Glslang, Spirv-Tools, Spirv-Cross
+      if: startsWith(matrix.os, 'ubuntu')
+      run: |
         export COMMON_CMAKE_ARGS=(-DCMAKE_C_COMPILER="/usr/bin/gcc" -DCMAKE_CXX_COMPILER="/usr/bin/g++")
 
         git clone https://github.com/KhronosGroup/glslang
