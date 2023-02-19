@@ -12,14 +12,14 @@
 
 find_path(GLSLANG_INCLUDE_DIR NAMES "glslang")
 
-find_library(GLSLANG_LIBRARY NAMES "glslang")
-find_library(GLSLANG_DefaultResourceLimits_LIBRARY NAMES "glslang-default-resource-limits")
-find_library(GLSLANG_GenericCodeGen_LIBRARY NAMES "GenericCodeGen")
-find_library(GLSLANG_HLSL_LIBRARY NAMES "HLSL")
-find_library(GLSLANG_MachineIndependent_LIBRARY NAMES "MachineIndependent")
-find_library(GLSLANG_OGLCompiler_LIBRARY NAMES "OGLCompiler")
-find_library(GLSLANG_OSDependent_LIBRARY NAMES "OSDependent")
-find_library(GLSLANG_SPIRV_LIBRARY NAMES "SPIRV")
+find_library(GLSLANG_LIBRARY glslang::glslang)
+find_library(GLSLANG_DefaultResourceLimits_LIBRARY glslang::glslang-default-resource-limits)
+find_library(GLSLANG_GenericCodeGen_LIBRARY glslang::GenericCodeGen)
+find_library(GLSLANG_HLSL_LIBRARY glslang::HLSL)
+find_library(GLSLANG_MachineIndependent_LIBRARY glslang::MachineIndependent)
+find_library(GLSLANG_OGLCompiler_LIBRARY glslang::OGLCompiler)
+find_library(GLSLANG_OSDependent_LIBRARY glslang::OSDependent)
+find_library(GLSLANG_SPIRV_LIBRARY glslang::SPIRV)
 
 set(GLSLANG_LIBRARIES)
 if(GLSLANG_LIBRARY)
