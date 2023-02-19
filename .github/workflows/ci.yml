@@ -104,7 +104,8 @@ jobs:
 
     - name: Install dependencies (Ubuntu)
       if: startsWith(matrix.os, 'ubuntu')
-      run: >
+      shell: bash
+      run: |
         sudo apt-get update
 
         sudo apt-get install
@@ -119,9 +120,6 @@ jobs:
 
         sudo rm /usr/bin/x86_64-linux-gnu-python2.7-config
 
-    - name: Build Glslang, Spirv-Tools, Spirv-Cross
-      if: startsWith(matrix.os, 'ubuntu')
-      run: |
         export COMMON_CMAKE_ARGS=(-DCMAKE_C_COMPILER="/usr/bin/gcc" -DCMAKE_CXX_COMPILER="/usr/bin/g++")
 
         git clone https://github.com/KhronosGroup/glslang
@@ -130,7 +128,7 @@ jobs:
 
         cd spirv-tools
         git clone https://github.com/KhronosGroup/spirv-headers external/spirv-headers
-        cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV-Headers_SOURCE_DIR=${CMAKE_CURRENT_BINARY_DIR}/spirv-headers-prefix/src/spirv-headers -DSPIRV_BUILD_COMPRESSION=OFF -DSPIRV_SKIP_EXECUTABLES=ON -DSPIRV_SKIP_TESTS=ON
+        cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV_BUILD_COMPRESSION=OFF -DSPIRV_SKIP_EXECUTABLES=ON -DSPIRV_SKIP_TESTS=ON
         cd build
         make install
 
