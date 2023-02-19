@@ -100,7 +100,7 @@ jobs:
         # Temporary hack so that pzip can run, since we are about to remove Cg anyway.
         install_name_tool -id "$(pwd)/thirdparty/darwin-libs-a/nvidiacg/lib/libCg.dylib" thirdparty/darwin-libs-a/nvidiacg/lib/libCg.dylib
 
-        brew install ccache
+        brew install ccache glslang spirv-tools spirv-cross
 
     - name: Install dependencies (Ubuntu)
       if: startsWith(matrix.os, 'ubuntu')
@@ -113,7 +113,7 @@ jobs:
         libeigen3-dev libfreetype6-dev libgl1-mesa-dev libjpeg-dev libode-dev
         libopenal-dev libpng-dev libssl-dev libvorbis-dev libx11-dev
         libxcursor-dev libxrandr-dev nvidia-cg-toolkit zlib1g-dev
-        python3-setuptools
+        glslang-dev spirv-tools spirv-cross python3-setuptools
 
         # Workaround for CMake 3.12 finding this first:
 
