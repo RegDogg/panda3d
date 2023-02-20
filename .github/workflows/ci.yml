@@ -123,6 +123,7 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu')
       run: |
         export COMMON_CMAKE_ARGS=(-DCMAKE_C_COMPILER="/usr/bin/gcc" -DCMAKE_CXX_COMPILER="/usr/bin/g++")
+        export PACKAGE_DESTINATION=$(pwd)/thirdparty/linux-libs-x64
 
         git clone https://github.com/KhronosGroup/glslang
         git clone https://github.com/KhronosGroup/spirv-tools
@@ -133,19 +134,25 @@ jobs:
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV_BUILD_COMPRESSION=OFF -DSPIRV_SKIP_EXECUTABLES=ON -DSPIRV_SKIP_TESTS=ON
         cd build
         sudo make DESTDIR=built install
-        mv built/usr/local/lib $(pwd)/thirdparty/linux-libs-x64/glslang
+        mv built/usr/local/lib/ built/usr/local/glslang/
+        mkdir ${PACKAGE_DESTINATION}/glslang/
+        mv built/usr/local/glslang/ ${PACKAGE_DESTINATION}/glslang/
 
         cd ../glslang
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DBUILD_EXTERNAL=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_EXCEPTIONS=OFF -DENABLE_GLSLANG_BINARIES=ON -DENABLE_HLSL=ON -DENABLE_RTTI=OFF -DENABLE_SPVREMAPPER=OFF
         cd build
         sudo make DESTDIR=built install
-        mv built/usr/local/lib/ $(pwd)/thirdparty/linux-libs-x64/spirv-tools/
+        mv built/usr/local/lib/ built/usr/local/spirv-tools/
+        mkdir ${PACKAGE_DESTINATION}/spirv-tools/
+        mv built/usr/local/spirv-tools/ ${PACKAGE_DESTINATION}/spirv-tools/
 
         cd ../spirv-cross
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV_CROSS_CLI=OFF -DSPIRV_CROSS_ENABLE_CPP=OFF -DSPIRV_CROSS_ENABLE_C_API=OFF -DSPIRV_CROSS_ENABLE_GLSL=ON -DSPIRV_CROSS_ENABLE_HLSL=ON -DSPIRV_CROSS_ENABLE_MSL=ON -DSPIRV_CROSS_ENABLE_REFLECT=OFF -DSPIRV_CROSS_ENABLE_TESTS=OFF -DSPIRV_CROSS_ENABLE_UTIL=OFF -DSPIRV_CROSS_EXCEPTIONS_TO_ASSERTIONS=ON -DSPIRV_CROSS_FORCE_PIC=ON -DSPIRV_CROSS_SHARED=OFF -DSPIRV_CROSS_STATIC=ON
         cd build
         sudo make DESTDIR=built install
-        mv built/usr/local/lib/ $(pwd)/thirdparty/linux-libs-x64/spirv-cross/
+        mv built/usr/local/lib/ built/usr/local/spirv-cross/
+        mkdir ${PACKAGE_DESTINATION}/spirv-cross/
+        mv built/usr/local/spirv-cross/ ${PACKAGE_DESTINATION}/spirv-cross/
 
     - name: Cache dependencies (Windows)
       if: runner.os == 'Windows'
