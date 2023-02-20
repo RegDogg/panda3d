@@ -129,7 +129,7 @@ jobs:
         git clone https://github.com/KhronosGroup/spirv-tools
         git clone https://github.com/KhronosGroup/spirv-cross
 
-        cd $(pwd)/spirv-tools
+        cd /home/runner/work/panda3d/panda3d/spirv-tools
         git clone https://github.com/KhronosGroup/spirv-headers external/spirv-headers
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV_BUILD_COMPRESSION=OFF -DSPIRV_SKIP_EXECUTABLES=ON -DSPIRV_SKIP_TESTS=ON
         cd build
@@ -138,7 +138,7 @@ jobs:
         sudo mkdir -p ${PACKAGE_DESTINATION}/glslang/
         sudo mv built/usr/local/glslang/ ${PACKAGE_DESTINATION}/glslang/
 
-        cd $(pwd)/glslang
+        cd /home/runner/work/panda3d/panda3d/glslang
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DBUILD_EXTERNAL=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_EXCEPTIONS=OFF -DENABLE_GLSLANG_BINARIES=ON -DENABLE_HLSL=ON -DENABLE_RTTI=OFF -DENABLE_SPVREMAPPER=OFF
         cd build
         sudo make DESTDIR=built install
@@ -146,7 +146,7 @@ jobs:
         sudo mkdir -p ${PACKAGE_DESTINATION}/spirv-tools/
         sudo mv built/usr/local/spirv-tools/ ${PACKAGE_DESTINATION}/spirv-tools/
 
-        cd $(pwd)/spirv-cross
+        cd /home/runner/work/panda3d/panda3d/spirv-cross
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV_CROSS_CLI=OFF -DSPIRV_CROSS_ENABLE_CPP=OFF -DSPIRV_CROSS_ENABLE_C_API=OFF -DSPIRV_CROSS_ENABLE_GLSL=ON -DSPIRV_CROSS_ENABLE_HLSL=ON -DSPIRV_CROSS_ENABLE_MSL=ON -DSPIRV_CROSS_ENABLE_REFLECT=OFF -DSPIRV_CROSS_ENABLE_TESTS=OFF -DSPIRV_CROSS_ENABLE_UTIL=OFF -DSPIRV_CROSS_EXCEPTIONS_TO_ASSERTIONS=ON -DSPIRV_CROSS_FORCE_PIC=ON -DSPIRV_CROSS_SHARED=OFF -DSPIRV_CROSS_STATIC=ON
         cd build
         sudo make DESTDIR=built install
