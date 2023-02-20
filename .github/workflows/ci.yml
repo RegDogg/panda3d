@@ -130,7 +130,7 @@ jobs:
         git clone https://github.com/KhronosGroup/spirv-cross
 
         cd spirv-tools
-        ls
+        pwd
 
         cd ../glslang
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DBUILD_EXTERNAL=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_EXCEPTIONS=OFF -DENABLE_GLSLANG_BINARIES=ON -DENABLE_HLSL=ON -DENABLE_RTTI=OFF -DENABLE_SPVREMAPPER=OFF
