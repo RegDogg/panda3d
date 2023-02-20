@@ -139,13 +139,13 @@ jobs:
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DBUILD_EXTERNAL=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=OFF -DENABLE_EXCEPTIONS=OFF -DENABLE_GLSLANG_BINARIES=ON -DENABLE_HLSL=ON -DENABLE_RTTI=OFF -DENABLE_SPVREMAPPER=OFF
         cd build
         sudo make DESTDIR=built install
-        mvdir built/usr/local/lib $(pwd)/thirdparty/linux-libs-x64/spirv-tools
+        mvdir built/usr/local/lib/ $(pwd)/thirdparty/linux-libs-x64/spirv-tools/
 
         cd ../spirv-cross
         cmake -S . -B build/ ${COMMON_CMAKE_ARGS} -DSPIRV_CROSS_CLI=OFF -DSPIRV_CROSS_ENABLE_CPP=OFF -DSPIRV_CROSS_ENABLE_C_API=OFF -DSPIRV_CROSS_ENABLE_GLSL=ON -DSPIRV_CROSS_ENABLE_HLSL=ON -DSPIRV_CROSS_ENABLE_MSL=ON -DSPIRV_CROSS_ENABLE_REFLECT=OFF -DSPIRV_CROSS_ENABLE_TESTS=OFF -DSPIRV_CROSS_ENABLE_UTIL=OFF -DSPIRV_CROSS_EXCEPTIONS_TO_ASSERTIONS=ON -DSPIRV_CROSS_FORCE_PIC=ON -DSPIRV_CROSS_SHARED=OFF -DSPIRV_CROSS_STATIC=ON
         cd build
         sudo make DESTDIR=built install
-        mvdir built/usr/local/lib $(pwd)/thirdparty/linux-libs-x64/spirv-cross
+        mvdir built/usr/local/lib/ $(pwd)/thirdparty/linux-libs-x64/spirv-cross/
 
     - name: Cache dependencies (Windows)
       if: runner.os == 'Windows'
