@@ -20,7 +20,7 @@ jobs:
 
         include:
         - profile: ubuntu-bionic-standard-unity-makefile
-          os: ubuntu-18.04
+          os: ubuntu-20.04
           config: Standard
           unity: YES
           generator: Unix Makefiles
@@ -30,7 +30,7 @@ jobs:
           eigen: NO
 
         - profile: ubuntu-bionic-coverage-ninja
-          os: ubuntu-18.04
+          os: ubuntu-20.04
           config: Coverage
           unity: NO
           generator: Ninja
