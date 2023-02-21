@@ -10,16 +10,16 @@
 #   GLSLANG_LIBRARIES   - the paths to the Glslang libraries
 #
 
-find_path(GLSLANG_INCLUDE_DIR NAMES "glslang")
+find_path(GLSLANG_INCLUDE_DIR NAMES glslang)
 
-find_library(GLSLANG_LIBRARY glslang::glslang)
-find_library(GLSLANG_DefaultResourceLimits_LIBRARY glslang::glslang-default-resource-limits)
-find_library(GLSLANG_GenericCodeGen_LIBRARY glslang::GenericCodeGen)
-find_library(GLSLANG_HLSL_LIBRARY glslang::HLSL)
-find_library(GLSLANG_MachineIndependent_LIBRARY glslang::MachineIndependent)
-find_library(GLSLANG_OGLCompiler_LIBRARY glslang::OGLCompiler)
-find_library(GLSLANG_OSDependent_LIBRARY glslang::OSDependent)
-find_library(GLSLANG_SPIRV_LIBRARY glslang::SPIRV)
+find_library(GLSLANG_LIBRARY NAMES glslang libglslang)
+find_library(GLSLANG_DefaultResourceLimits_LIBRARY NAMES glslang-default-resource-limits libglslang-default-resource-limits)
+find_library(GLSLANG_GenericCodeGen_LIBRARY GenericCodeGen NAMES libGenericCodeGen)
+find_library(GLSLANG_HLSL_LIBRARY NAMES HLSL libHLSL)
+find_library(GLSLANG_MachineIndependent_LIBRARY NAMES MachineIndependent libMachineIndependent)
+find_library(GLSLANG_OGLCompiler_LIBRARY OGLCompiler NAMES libOGLCompiler)
+find_library(GLSLANG_OSDependent_LIBRARY OSDependent NAMES libOSDependent)
+find_library(GLSLANG_SPIRV_LIBRARY SPIRV NAMES libSPIRV)
 
 set(GLSLANG_LIBRARIES)
 if(GLSLANG_LIBRARY)
