@@ -424,14 +424,14 @@ jobs:
       shell: powershell
       run: |
         $wc = New-Object System.Net.WebClient
-        $wc.DownloadFile("https://www.panda3d.org/download/panda3d-1.10.13/panda3d-1.10.13-tools-win64.zip", "thirdparty-tools.zip")
+        $wc.DownloadFile("https://download.rewrittenoffline.com/panda3d/panda3d-1.10.13-tools-win64.zip", "thirdparty-tools.zip")
         Expand-Archive -Path thirdparty-tools.zip
         Move-Item -Path thirdparty-tools/panda3d-1.10.13/thirdparty -Destination .
     - name: Get thirdparty packages (macOS)
       if: runner.os == 'macOS'
       run: |
         brew install glslang spirv-tools spirv-cross
-        curl -O https://www.panda3d.org/download/panda3d-1.10.13/panda3d-1.10.13-tools-mac.tar.gz
+        curl -O https://download.rewrittenoffline.com/panda3d/panda3d-1.10.13-tools-mac.tar.gz
         tar -xf panda3d-1.10.13-tools-mac.tar.gz
         mv panda3d-1.10.13/thirdparty thirdparty
         rmdir panda3d-1.10.13
