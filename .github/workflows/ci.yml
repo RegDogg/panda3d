@@ -104,7 +104,7 @@ jobs:
 
     - name: Install dependencies (Ubuntu)
       if: startsWith(matrix.os, 'ubuntu')
-      run: |
+      run: >
         sudo apt-get update
 
         sudo apt-get install build-essential ninja-build clang llvm ccache bison flex libeigen3-dev libfreetype6-dev libgl1-mesa-dev libjpeg-dev libode-dev libopenal-dev libpng-dev libssl-dev libvorbis-dev libx11-dev libxcursor-dev libxrandr-dev nvidia-cg-toolkit zlib1g-dev python3-setuptools
@@ -113,8 +113,11 @@ jobs:
 
         sudo rm /usr/bin/x86_64-linux-gnu-python2.7-config
 
-        # Build Glslang, Spirv-Tools, Spirv-Cross
 
+
+    - name: Build Glslang, Spirv-Tools, Spirv-Cross
+      if: startsWith(matrix.os, 'ubuntu')
+      run: |
         export COMMON_CMAKE_ARGS=(-DCMAKE_C_COMPILER="/usr/bin/gcc" -DCMAKE_CXX_COMPILER="/usr/bin/g++")
         export PACKAGE_DESTINATION=$(pwd)/thirdparty/linux-libs-x64/
 
