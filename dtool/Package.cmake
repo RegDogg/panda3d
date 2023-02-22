@@ -679,7 +679,7 @@ package_option(Glslang
   DEFAULT ON
   "Enable support for glslang."
   FOUND_AS Glslang
-  IMPORTED_AS glslang::glslang)
+  IMPORTED_AS glslang::glslang glslang::glslang-default-resource-limits glslang::HLSL glslang::SPIRV)
 
 package_status(Glslang "Glslang")
 
