@@ -63,7 +63,7 @@ jobs:
           os: windows-2022
           config: Standard
           unity: YES
-          generator: Visual Studio 16 2019
+          generator: Visual Studio 17 2022
           compiler: Default
           metalibs: YES
           python: YES
@@ -73,7 +73,7 @@ jobs:
           os: windows-2022
           config: Standard
           unity: NO
-          generator: Visual Studio 16 2019
+          generator: Visual Studio 17 2022
           compiler: Default
           metalibs: NO
           python: NO
