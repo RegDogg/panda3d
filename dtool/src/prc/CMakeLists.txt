@@ -96,6 +96,10 @@ if(ANDROID)
   target_link_libraries(p3prc log)
 endif()
 
+if(WIN32)
+  target_link_libraries(p3prc ws2_32.lib Crypt32.lib)
+endif()
+
 if(HAVE_OPENSSL AND CMAKE_CXX_COMPILER_ID MATCHES "^(GNU|Clang)$")
   # Do not re-export symbols from these libraries.
   target_link_options(p3prc PRIVATE "LINKER:--exclude-libs,libssl.a")
