@@ -133,12 +133,6 @@ jobs:
         cd build
         sudo make install
 
-    - name: Cache dependencies (Windows)
-      if: runner.os == 'Windows'
-      uses: actions/cache@v1
-      with:
-        path: thirdparty
-        key: ci-cmake-${{ runner.OS }}-thirdparty-v1.10.13-r1
     - name: Install dependencies (Windows)
       if: runner.os == 'Windows'
       shell: powershell
