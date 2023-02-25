@@ -9,7 +9,6 @@
 #   GLSLANG_INCLUDE_DIR - the path to the include directory
 #   GLSLANG_LIBRARIES   - the paths to the Glslang libraries
 #
-
 find_path(GLSLANG_INCLUDE_DIR NAMES glslang)
 
 find_library(GLSLANG_LIBRARY NAMES "glslang" "libglslang")
@@ -48,4 +47,4 @@ if(GLSLANG_SPIRV_LIBRARY)
 endif()
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(Glslang DEFAULT_MSG GLSLANG_INCLUDE_DIR GLSLANG_LIBRARIES)
+find_package_handle_standard_args(Glslang DEFAULT_MSG GLSLANG_INCLUDE_DIR GLSLANG_LIBRARIES GLSLANG_glslangValidator_EXE)
