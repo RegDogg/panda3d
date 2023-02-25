@@ -145,7 +145,7 @@ jobs:
       run: |
         if (!(Test-Path thirdparty/win-libs-vc14-x64)) {
           $wc = New-Object System.Net.WebClient
-          $wc.DownloadFile("https://download.rewrittenoffline.com/panda3d/panda3d-1.10.13-tools-win64.zip", "thirdparty-tools.zip")
+          $wc.DownloadFile("https://download.rewrittenoffline.com/panda3d/panda3d-tools-win64.zip", "thirdparty-tools.zip")
           Expand-Archive -Path thirdparty-tools.zip
           Move-Item -Path thirdparty-tools/panda3d-1.10.13/thirdparty -Destination .
         }
