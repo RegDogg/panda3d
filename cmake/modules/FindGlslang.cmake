@@ -9,7 +9,7 @@
 #   GLSLANG_INCLUDE_DIR - the path to the include directory
 #   GLSLANG_LIBRARIES   - the paths to the Glslang libraries
 #
-find_path(GLSLANG_INCLUDE_DIR NAMES glslang)
+find_path(GLSLANG_INCLUDE_DIR NAMES "glslang")
 
 find_library(GLSLANG_LIBRARY NAMES "glslang" "libglslang")
 find_library(GLSLANG_DefaultResourceLimits_LIBRARY NAMES "glslang-default-resource-limits" "libglslang-default-resource-limits")
