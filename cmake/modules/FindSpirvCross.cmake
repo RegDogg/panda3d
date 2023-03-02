@@ -12,9 +12,9 @@
 
 find_path(SPIRVCROSS_INCLUDE_DIR NAMES "spirv_cross")
 
-find_library(SPIRVCROSS_LIBRARY NAMES "spirv-cross-core")
-find_library(SPIRVCROSS_GLSL_LIBRARY NAMES "spirv-cross-glsl")
-find_library(SPIRVCROSS_HLSL_LIBRARY NAMES "spirv-cross-hlsl")
+find_library(SPIRVCROSS_LIBRARY NAMES "spirv-cross-core" "libspirv-cross-core")
+find_library(SPIRVCROSS_GLSL_LIBRARY NAMES "spirv-cross-glsl" "libspirv-cross-glsl")
+find_library(SPIRVCROSS_HLSL_LIBRARY NAMES "spirv-cross-hlsl" "libspirv-cross-hlsl")
 
 set(SPIRVCROSS_LIBRARIES)
 if(SPIRVCROSS_LIBRARY)

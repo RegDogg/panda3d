@@ -12,8 +12,8 @@
 
 find_path(SPIRVTOOLS_INCLUDE_DIR NAMES "spirv-tools")
 
-find_library(SPIRVTOOLS_LIBRARY NAMES "SPIRV-Tools")
-find_library(SPIRVTOOLS_OPT_LIBRARY NAMES "SPIRV-Tools-Opt")
+find_library(SPIRVTOOLS_LIBRARY NAMES "SPIRV-Tools" "libSPIRV-Tools")
+find_library(SPIRVTOOLS_OPT_LIBRARY NAMES "SPIRV-Tools-Opt" "libSPIRV-Tools-Opt")
 
 set(SPIRVTOOLS_LIBRARIES)
 if(SPIRVTOOLS_LIBRARY)
